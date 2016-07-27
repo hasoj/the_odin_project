@@ -1,0 +1,115 @@
+ul{
+	padding:0px;
+	list-style-type:none;
+	float:right;
+	margin-right:40px;
+}
+
+ul li{
+	display:inline;
+	margin-right:10px;
+	font-size:15px;
+}
+
+ul li img{
+	width:25px;
+	height:25px;
+	vertical-align:middle;
+}
+
+ul li a:hover{
+	text-decoration:underline;
+	
+}
+ul li a{
+	text-decoration:none;
+	color:#000000;
+}
+
+#glogo{
+	width:350px;
+	height:100px;
+	position:absolute;
+	top:25%;
+	left:35%;
+}
+
+h1{
+	font-size:80px;
+	margin:auto;
+}
+h1 span:first-child{
+	color:blue;
+}
+h1 span:nth-child(2){
+	color:red;
+}
+h1 span:nth-child(3){
+	color:yellow;
+}
+h1 span:nth-child(4){
+	color:blue;
+}
+h1 span:nth-child(5){
+	color:green;
+}
+h1 span:nth-child(6){
+	color:red;
+}
+h6{
+	margin:auto;
+	float:right;
+	font-size:15px;
+	margin-top:-10px;
+	margin-right:35px;	
+	font-family:16px/16px arial, sans-serif;
+	color: #4285f4;
+}
+
+#searchform{
+	width:600px;
+	height:35px;
+	border:1px solid #4285f4;
+	position:absolute;
+	top:45%;
+	left:25%;
+}
+
+#searchform img{
+	position:absolute;
+	width:25px;
+	height:20px;
+	top:6px;
+	right:5px;
+}
+
+#search{
+	clear:both;
+	position:absolute;
+	top:55%;
+	left:35%;
+}
+
+#luckyguy{
+	clear:both;
+	position:absolute;
+	top:55%;
+	left:50%;
+}
+
+p{
+
+	position:absolute;
+	top:62%;
+	left:38%;
+}
+
+
+
+
+
+
+
+
+
+
