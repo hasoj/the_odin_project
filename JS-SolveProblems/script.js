@@ -11,7 +11,54 @@ function Problem(title,subtitle,description)
 	this.description = description;
 }
 
+function ProblemHolder(problem)
+{
+	this.container = document.createElement("div");
+	this.container = document.createElement("div");
+	this.titleDiv = document.createElement("div");
+	this.subtitleDiv = document.createElement("div");
+	this.descriptionDiv = document.createElement("div");
+	this.container.id = "div" + String(index);
+	this.titleDiv.id = "tdiv" + String(index);
+	this.subtitleDiv.id = "stdiv" + String(index);
+	this.descriptionDiv.id = "ddiv" + String(index);
+	index++;	
 
+	this.container.style.border = "1px solid black";
+	this.container.style.display = "inline-block";
+	this.container.style.padding = "0px";
+
+
+	this.titleDiv.style.border = "1px solid red";
+	this.titleDiv.style.width = "200px";
+	var titlePara = document.createElement("p");
+	titlePara.textContent = problem.title;
+	titlePara.style.border = "1px solid yellow";
+	this.titleDiv.appendChild(titlePara);
+	this.container.appendChild(this.titleDiv);
+
+	this.subtitleDiv.style.border = "1px solid green";
+	this.subtitleDiv.style.width = "100px";
+	var subtitlePara = document.createElement("p");
+	subtitlePara.textContent = problem.subtitle;
+	subtitlePara.style.fontSize = "15px";
+	subtitlePara.style.fontFamily = "Verdana,sans";
+	subtitlePara.style.fontStyle = "italic";
+	this.subtitleDiv.appendChild(subtitlePara);
+	this.container.appendChild(this.subtitleDiv);
+	
+
+	this.descriptionDiv.style.width = "600px";
+	this.descriptionDiv.style.padding = "0px";
+	this.descriptionDiv.style.border = "1px solid magenta";
+	var descriptionPara = document.createElement("p");
+	descriptionPara.textContent = problem.description;
+	descriptionPara.style.fontFamily = "Curial";
+	descriptionPara.style.textIndent = "10px";
+	this.descriptionDiv.appendChild(descriptionPara);
+	this.container.appendChild(this.descriptionDiv);
+	
+}
 
 var problem1 = new Problem("Multiples of 3 and 5","Problem 1","If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.");
 
@@ -19,11 +66,71 @@ var problem2 = new Problem("Even Fibonacci numbers","Problem 2","Each new term i
 
 var problem3 = new Problem("Larges prime factor","Problem 3","The prime factors of 13195 are 5, 7, 13 and 29.What is the largest prime factor of the number 600851475143 ?");
 
-function start(){
-	var para = document.createElement("p");
-	var node = document.createTextNode("This is new.");
-	para.appendChild(node);
 
-	var element = document.getElementById("div1");
-	element.appendChild(para);
+// some test about page resizeing
+function redraw(){
+	var pageWidth = window.outerWidth;
+	var pageHeight = window.outerHeight;
+	if(pageWidth/pageHeight < 1.7594086021505377)
+		pageTitle.style.textAlign = "right";
+	else
+		pageTitle.style.textAlign = "center";
 }
+
+// About title which appear on the screen
+var pageTitle = document.createElement("h2");
+var pageTitleText = document.createTextNode("Project Euler's Problems");
+pageTitle.appendChild(pageTitleText);
+document.body.appendChild(pageTitle);
+
+pageTitle.style.fontFamily = "Arial";
+pageTitle.style.textAlign = "center";
+pageTitle.style.color = "Blue";
+
+
+
+var index = 1;
+
+var problems = [];
+problems.push(new ProblemHolder(problem1));
+document.body.appendChild(problems[0].container);
+
+// Solving first problem
+
+var form1 = document.createElement("form");
+var input1 = document.createElement("input");
+var input2 = document.createElement("input");
+input1.type = "submit";
+input1.value = "Submit";
+input1.name = "Press here to find the answer";
+input2.type = "text";
+input2.name = "Put here a number less than 1000";
+form1.action = "#";
+var result = document.createElement("p");
+
+function SolveProblemOne(number)
+{
+	var total = 0;
+	if(number <= 1000)
+	{
+		for(var i=15; i<parseInt(number); i+=15)
+			total += i;
+
+		result.textContent = "The result is "+ total + ".";
+	}
+	else
+		result.textContent = "Please insert a number less or equal than 1000."
+	
+	return 0;
+}
+
+form1.appendChild(input1);
+form1.appendChild(input2);
+document.body.appendChild(form1);
+document.body.appendChild(result);
+var abc = 0;
+form1.addEventListener("submit", function (){
+	input2.addEventListener("input",function(){ abc = input2.value;});
+		
+	SolveProblemOne(input2.value);
+});
