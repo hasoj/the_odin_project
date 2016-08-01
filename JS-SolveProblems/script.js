@@ -11,9 +11,8 @@ function Problem(title,subtitle,description)
 	this.description = description;
 }
 
-function ProblemHolder(problem)
+function ProblemHolder(problem,func)
 {
-	this.container = document.createElement("div");
 	this.container = document.createElement("div");
 	this.titleDiv = document.createElement("div");
 	this.subtitleDiv = document.createElement("div");
@@ -57,7 +56,6 @@ function ProblemHolder(problem)
 	descriptionPara.style.textIndent = "10px";
 	this.descriptionDiv.appendChild(descriptionPara);
 	this.container.appendChild(this.descriptionDiv);
-	
 }
 
 var problem1 = new Problem("Multiples of 3 and 5","Problem 1","If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.");
@@ -87,27 +85,6 @@ pageTitle.style.fontFamily = "Arial";
 pageTitle.style.textAlign = "center";
 pageTitle.style.color = "Blue";
 
-
-
-var index = 1;
-
-var problems = [];
-problems.push(new ProblemHolder(problem1));
-document.body.appendChild(problems[0].container);
-
-// Solving first problem
-
-var form1 = document.createElement("form");
-var input1 = document.createElement("input");
-var input2 = document.createElement("input");
-input1.type = "submit";
-input1.value = "Submit";
-input1.name = "Press here to find the answer";
-input2.type = "text";
-input2.name = "Put here a number less than 1000";
-form1.action = "#";
-var result = document.createElement("p");
-
 function SolveProblemOne(number)
 {
 	var total = 0;
@@ -121,16 +98,53 @@ function SolveProblemOne(number)
 	else
 		result.textContent = "Please insert a number less or equal than 1000."
 	
-	return 0;
+	return false;
 }
 
+
+var index = 1;
+
+var problems = [];
+
+problems.push(new ProblemHolder(problem1,SolveProblemOne));
+document.body.appendChild(problems[0].container);
+
+// Solving first problem
+
+var result = document.createElement("p");
+
+var form1 = document.createElement("form");	
+var input1 = document.createElement("input");
+var input2 = document.createElement("input");
+input1.type = "submit";
+input1.value = "Submit";
+input1.name = "Press here to find the answer";
+input2.type = "text";
+input2.name = "Put here a number less than 1000";
+form1.action = "#";
+
+form1.onsubmit = function (){
+	return SolveProblemOne(input2.value);
+}
 form1.appendChild(input1);
 form1.appendChild(input2);
 document.body.appendChild(form1);
 document.body.appendChild(result);
-var abc = 0;
-form1.addEventListener("submit", function (){
-	input2.addEventListener("input",function(){ abc = input2.value;});
-		
-	SolveProblemOne(input2.value);
-});
+
+console.log(index);
+problems.push(new ProblemHolder(problem2,SolveProblemOne));
+console.log(index);
+document.body.appendChild(problems[index-2].container);
+
+
+
+
+
+
+
+
+
+
+
+
+
