@@ -1,0 +1,39 @@
+@charset "UTF-8"
+
+body {
+	margin: auto;
+}
+
+#interface {
+
+	margin: auto;
+	width: 500px; 
+	text-align: center;
+}
+
+#grid {
+	margin: auto;
+	margin-top:10px;
+	padding: 0;
+	display: block;
+}
+
+.gridCell {
+
+	margin: 0;
+	padding: 0;
+	display: inline;
+	float:left;
+	border: 1px solid black;
+
+}
+
+.gridCellFinal {
+
+	margin: 0;
+	padding: 0;
+	float:left;
+	clear:left;
+	border: 1px solid black;
+
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Etch-A-Sketch</title>
+		<link href="main.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+
+	<body>
+		<div id="interface">
+			<h1>Etch-A-Sketch</h1>
+			<button onclick="getSize()" id="generateGrid" name="button">
+				Generate grid
+			</button>
+			<input id="gridSize" type="number" min="2" value="grid_size">
+			<select id="drawOptions" name="select">
+  				<option value="Alpha" selected>Alpha</option> 
+  				<option value="Track">Track</option>
+ 				<option value="Random">Random</option>
+			</select>
+		</div>
+
+		<div id="grid">
+		</div>
+
+
+
+
+	</body>
+
+</html>
